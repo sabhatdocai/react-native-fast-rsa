@@ -16,56 +16,50 @@ export default class RSA {
     label: string,
     hashName: RSAHash,
     pkcs12: string,
-    passphrase: string
   ): Promise<string> {
-    return RNFastRsa.decryptOAEP(message, label,hashName,pkcs12, passphrase);
+    return RNFastRsa.decryptOAEP(message, label,hashName,pkcs12);
   }
   static decryptPKCS1v15(
     message: string,
     pkcs12: string,
-    passphrase: string
   ): Promise<string> {
-    return RNFastRsa.decryptPKCS1v15(message, pkcs12, passphrase);
+    return RNFastRsa.decryptPKCS1v15(message, pkcs12);
   }
-  static encryptOAEP(message: string,label: string, hashName: RSAHash, pkcs12: string, passphrase: string): Promise<string> {
-    return RNFastRsa.encryptOAEP(message,label,hashName, pkcs12, passphrase);
+  static encryptOAEP(message: string,label: string, hashName: RSAHash, publicKey: string): Promise<string> {
+    return RNFastRsa.encryptOAEP(message,label,hashName, publicKey);
   }
-  static encryptPKCS1v15(message: string, pkcs12: string, passphrase: string): Promise<string> {
-    return RNFastRsa.encryptPKCS1v15(message, pkcs12, passphrase);
+  static encryptPKCS1v15(message: string, pkcs12: string): Promise<string> {
+    return RNFastRsa.encryptPKCS1v15(message, pkcs12);
   }
   static signPSS(
     message: string,
     hashName: RSAHash,
     pkcs12: string,
-    passphrase: string
   ): Promise<string> {
-    return RNFastRsa.signPSS(message, hashName, pkcs12, passphrase);
+    return RNFastRsa.signPSS(message, hashName, pkcs12);
   }
   static signPKCS1v15(
     message: string,
     hashName: RSAHash,
     pkcs12: string,
-    passphrase: string
   ): Promise<string> {
-    return RNFastRsa.signPKCS1v15(message, hashName, pkcs12, passphrase);
+    return RNFastRsa.signPKCS1v15(message, hashName, pkcs12);
   }
   static verifyPSS(
     signature: string,
     message: string,
     hashName: RSAHash,
     pkcs12: string,
-    passphrase: string
   ): Promise<boolean> {
-    return RNFastRsa.verifyPSS(signature, message, hashName, pkcs12, passphrase);
+    return RNFastRsa.verifyPSS(signature, message, hashName, pkcs12);
   }
   static verifyPKCS1v15(
     signature: string,
     message: string,
     hashName: RSAHash,
     pkcs12: string,
-    passphrase: string
   ): Promise<boolean> {
-    return RNFastRsa.verifyPKCS1v15(signature, message, hashName, pkcs12, passphrase);
+    return RNFastRsa.verifyPKCS1v15(signature, message, hashName, pkcs12);
   }
 
   static hash(
